@@ -1433,6 +1433,23 @@ offset_bottom = 168.0
 texture = ExtResource("1_uo41u")
 stretch_mode = 1
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+offset_left = 5473.0
+offset_right = 10946.0
+offset_bottom = 272.0
+rotation = -3.14159
+texture = ExtResource("1_uo41u")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect"]
+offset_left = -0.00244141
+offset_top = -525.0
+offset_right = 5473.0
+offset_bottom = -253.0
+rotation = -6.28318
+texture = ExtResource("1_uo41u")
+stretch_mode = 1
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_co2n3")
 format = 2
@@ -1441,6 +1458,8 @@ layer_0/tile_data = PackedInt32Array(393216, 65536, 1, 458752, 65536, 2, 524288,
 
 [node name="Player" parent="." instance=ExtResource("2_t7emj")]
 position = Vector2(-64, 49)
+jump_velocity = -300.0
+double_jump_velocity = -300.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
