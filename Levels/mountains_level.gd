@@ -4,4 +4,4 @@ func _on_body_entered(body):
 	$"../CanvasLayer/Control/ending".show()
 	$"../CanvasLayer/Control/ending".text = str(1)
 	queue_free()
-	get_tree().change_scene_to_file("res://Levels/mountains_level.tscn")
+	get_tree().change_scene_to_file("res://Levels/caves_level.tscn")
