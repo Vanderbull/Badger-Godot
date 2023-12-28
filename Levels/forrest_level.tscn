@@ -1499,6 +1499,6 @@ anchors_preset = 0
 layout_mode = 0
 offset_right = 68.0
 offset_bottom = 26.0
-text = "THE END"
+text = "FORREST LEVEL"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

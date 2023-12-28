@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uo41u"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="2_t7emj"]
 [ext_resource type="Texture2D" uid="uid://bbxdxr0xgc1wo" path="res://icon.svg" id="3_vatju"]
-[ext_resource type="Script" path="res://Levels/Area2D.gd" id="4_1aiea"]
+[ext_resource type="Script" path="res://Levels/test_level.gd" id="4_f2674"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("1_eqpw1")
@@ -1480,7 +1480,7 @@ drag_vertical_enabled = true
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(54.001, 60)
 scale = Vector2(0.24, 0.24)
-script = ExtResource("4_1aiea")
+script = ExtResource("4_f2674")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("3_vatju")
@@ -1499,6 +1499,6 @@ anchors_preset = 0
 layout_mode = 0
 offset_right = 68.0
 offset_bottom = 26.0
-text = "THE END"
+text = "TEST LEVEL"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
