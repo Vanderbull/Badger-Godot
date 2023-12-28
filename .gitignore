@@ -1,2 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
+# Ignore x86_64 executables
+*.x86_64
