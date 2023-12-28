@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b68020xdvytbx"]
+[gd_scene load_steps=10 format=3 uid="uid://b68020xdvytbx"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_g2d2m"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_aj5eo"]
 [ext_resource type="Script" path="res://Levels/mountains_level.gd" id="3_pjple"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="3_rcoxl"]
 [ext_resource type="Texture2D" uid="uid://bbxdxr0xgc1wo" path="res://icon.svg" id="5_75a0e"]
+[ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_vkpxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("2_aj5eo")
@@ -1501,5 +1502,9 @@ layout_mode = 0
 offset_right = 68.0
 offset_bottom = 26.0
 text = "MOUNTAINS LEVEL"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vkpxf")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
