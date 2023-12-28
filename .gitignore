@@ -2,3 +2,5 @@
 .godot/
 # Ignore x86_64 executables
 *.x86_64
+# Ignore lock files
+*.~lock.*
