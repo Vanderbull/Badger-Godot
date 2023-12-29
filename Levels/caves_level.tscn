@@ -1479,7 +1479,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(54.001, 60)
+position = Vector2(4724, 32)
 scale = Vector2(0.24, 0.24)
 script = ExtResource("4_v5coq")
 
@@ -1504,6 +1504,7 @@ text = "CAVES LEVEL"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ujd7d")
+volume_db = -20.0
 autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

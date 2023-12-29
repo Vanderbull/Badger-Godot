@@ -70,7 +70,6 @@ func jump():
 	animated_sprite.play("jump_start")
 	animation_locked = true
 	
-	
 func double_jump():
 	velocity.y = double_jump_velocity
 	animated_sprite.play("jump_double")
@@ -84,4 +83,3 @@ func land():
 func _on_animated_sprite_2d_animation_finished():
 	if(["jump_end", "jump_start", "jump_double"].has(animated_sprite.animation)):
 		animation_locked = false
-		

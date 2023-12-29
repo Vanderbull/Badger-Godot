@@ -1,6 +1,6 @@
 extends Area2D
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	$"../CanvasLayer/Control/ending".show()
 	$"../CanvasLayer/Control/ending".text = str(1)
 	queue_free()
