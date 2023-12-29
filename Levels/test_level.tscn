@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmmkegp00cl18"]
+[gd_scene load_steps=13 format=3 uid="uid://dmmkegp00cl18"]
 
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_eqpw1"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uo41u"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://1lrthnsd1au8" path="res://UI/transitioner.tscn" id="6_bs7m8"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_us8jb"]
 [ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="7_3sdg8"]
+[ext_resource type="PackedScene" uid="uid://c447owxmcvl2u" path="res://Levels/test_level2.tscn" id="7_570a6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("1_eqpw1")
@@ -1509,6 +1510,7 @@ shape = SubResource("RectangleShape2D_pff2y")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_bs7m8")]
+scene_to_load = ExtResource("7_570a6")
 
 [node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
 offset_right = 44.0

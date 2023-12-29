@@ -83,11 +83,10 @@ grow_vertical = 2
 script = ExtResource("1_33y30")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(0.1, 0.1)
+scale = Vector2(25, 25)
 pivot_offset = Vector2(32, 32)
 texture = SubResource("GradientTexture2D_of2mi")
 
@@ -95,3 +94,5 @@ texture = SubResource("GradientTexture2D_of2mi")
 libraries = {
 "": SubResource("AnimationLibrary_oxuga")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
