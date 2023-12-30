@@ -1504,16 +1504,17 @@ scale = Vector2(-1.26823, 3.58067)
 script = ExtResource("4_r7ftu")
 
 [node name="Sprite2D" type="Sprite2D" parent="ExitTestArea"]
+visible = false
 texture = ExtResource("3_vatju")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTestArea"]
+position = Vector2(-93.8316, 16.1981)
 scale = Vector2(7.08, 6.96)
 shape = SubResource("RectangleShape2D_pff2y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_bs7m8")]
-visible = false
 scene_to_load = ExtResource("7_570a6")
 
 [node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
