@@ -1543,7 +1543,7 @@ autoplay = true
 [node name="Snail" parent="." instance=ExtResource("10_86hf7")]
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
+process_callback = 0
 
 [connection signal="body_entered" from="ExitTestArea" to="ExitTestArea" method="_on_body_entered"]
 [connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]
