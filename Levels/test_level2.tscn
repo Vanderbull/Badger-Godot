@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c447owxmcvl2u"]
+[gd_scene load_steps=11 format=3 uid="uid://c447owxmcvl2u"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uqsx4"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_pxqvd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Levels/test_level2.gd" id="4_1ummr"]
 [ext_resource type="Texture2D" uid="uid://bbxdxr0xgc1wo" path="res://icon.svg" id="5_y7p6w"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_1k50d"]
+[ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="7_7dk7p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("2_pxqvd")
@@ -1506,5 +1507,7 @@ text = "TEST LEVEL 2"
 stream = ExtResource("6_1k50d")
 volume_db = -20.0
 autoplay = true
+
+[node name="Snail" parent="." instance=ExtResource("7_7dk7p")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

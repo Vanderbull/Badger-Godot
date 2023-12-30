@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch42wmqg4blo4"]
+
+[ext_resource type="Script" path="res://Enemies/snail.gd" id="1_31368"]
+[ext_resource type="Texture2D" uid="uid://dpii7hugyoc76" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/walk-Sheet.png" id="1_pvcfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnose"]
+atlas = ExtResource("1_pvcfm")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2pns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnose")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlb73"]
+
+[node name="Snail" type="CharacterBody2D"]
+script = ExtResource("1_31368")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q2pns")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nlb73")

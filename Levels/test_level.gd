@@ -1,8 +1,11 @@
-extends Area2D
+extends Node2D
 
-func _on_body_entered(_body):
-	$"../CanvasLayer/Control/ending".show()
-	$"../CanvasLayer/Control/ending".text = str(1)
-	#queue_free()
-	get_tree().change_scene_to_file("res://Levels/test_level2.tscn")
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Timer.start()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_timer_timeout():
+	print("Timer stopped")
