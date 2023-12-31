@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmmkegp00cl18"]
+[gd_scene load_steps=16 format=3 uid="uid://dmmkegp00cl18"]
 
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_eqpw1"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uo41u"]
@@ -11,8 +11,7 @@
 [ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="7_3sdg8"]
 [ext_resource type="PackedScene" uid="uid://c447owxmcvl2u" path="res://Levels/test_level2.tscn" id="7_570a6"]
 [ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="10_86hf7"]
-[ext_resource type="Script" path="res://Levels/Enemy.gd" id="12_1wvn8"]
-[ext_resource type="Texture2D" uid="uid://b86pdjcegjirj" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="13_to4gh"]
+[ext_resource type="PackedScene" uid="uid://dk38o15espn38" path="res://Enemies/enemy.tscn" id="12_1r6c4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("1_eqpw1")
@@ -1449,8 +1448,6 @@ sources/0 = SubResource("TileSetAtlasSource_x01cw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pff2y"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jiqq2"]
-
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("4_f2674")
 
@@ -1550,19 +1547,12 @@ autoplay = true
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 
-[node name="Enemy" type="Area2D" parent="."]
-position = Vector2(216, 59)
-script = ExtResource("12_1wvn8")
-move_dir = Vector2(0, -50)
+[node name="Enemy" parent="." instance=ExtResource("12_1r6c4")]
+position = Vector2(240, 54)
 
-[node name="Sprite" type="Sprite2D" parent="Enemy"]
-texture = ExtResource("13_to4gh")
-hframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("CircleShape2D_jiqq2")
+[node name="Enemy2" parent="." instance=ExtResource("12_1r6c4")]
+position = Vector2(350, 134)
 
 [connection signal="body_entered" from="ExitTestArea" to="ExitTestArea" method="_on_body_entered"]
 [connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Enemy" to="Enemy" method="_on_body_entered"]
