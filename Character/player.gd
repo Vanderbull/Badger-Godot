@@ -35,7 +35,9 @@ func _physics_process(delta):
 			# Double jump in air
 			double_jump()
 			
-
+	# Handle Attack.
+	if Input.is_action_just_pressed("attack"):
+		attack()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -83,3 +85,9 @@ func land():
 func _on_animated_sprite_2d_animation_finished():
 	if(["jump_end", "jump_start", "jump_double"].has(animated_sprite.animation)):
 		animation_locked = false
+	elif(["attack"].has(animated_sprite.animation)):
+		animation_locked = false
+		
+func attack():
+	animated_sprite.play("attack")
+	animation_locked = true
