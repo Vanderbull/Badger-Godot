@@ -1428,6 +1428,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_x01cw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pff2y"]
+size = Vector2(61.2052, 210.129)
 
 [node name="ForrestLevel" type="Node2D"]
 
@@ -1485,9 +1486,11 @@ scale = Vector2(0.24, 0.24)
 script = ExtResource("4_kltyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+visible = false
 texture = ExtResource("5_0c5eg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(537.5, -452.083)
 scale = Vector2(7.08, 6.96)
 shape = SubResource("RectangleShape2D_pff2y")
 
