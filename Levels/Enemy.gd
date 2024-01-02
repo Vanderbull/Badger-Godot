@@ -1,5 +1,7 @@
 extends Area2D
 
+const GameOverScreen = preload("res://UI/game_over_screen.tscn")
+
 @export var move_speed : float = 30.0
 @export var move_dir : Vector2
 
@@ -25,4 +27,6 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		body.queue_free()
+		var game_over = GameOverScreen.instantiate()
+		add_child(game_over)
+		#body.queue_free()
