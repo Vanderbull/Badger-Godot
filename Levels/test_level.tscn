@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dmmkegp00cl18"]
+[gd_scene load_steps=39 format=3 uid="uid://dmmkegp00cl18"]
 
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_eqpw1"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uo41u"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="10_86hf7"]
 [ext_resource type="Texture2D" uid="uid://rh51lud3gbav" path="res://Art/Legacy-Fantasy - High Forest 2.3/Trees/Red-Tree.png" id="11_51mrk"]
 [ext_resource type="Texture2D" uid="uid://y8eb2845t00h" path="res://Art/Legacy-Fantasy - High Forest 2.3/Trees/Yellow-Tree.png" id="12_b74uy"]
+[ext_resource type="Script" path="res://Levels/CheckButton.gd" id="18_86urp"]
 [ext_resource type="PackedScene" uid="uid://crp52ghnpnrp" path="res://Enemies/small_bee.tscn" id="22_m1mmy"]
 [ext_resource type="PackedScene" uid="uid://cq60pkhbtl4ay" path="res://Enemies/boar.tscn" id="23_m8qan"]
 
@@ -50983,8 +50984,28 @@ sources/9 = SubResource("TileSetAtlasSource_1h1jt")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pff2y"]
 size = Vector2(9.02101, 15.8942)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hdlsv"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Gradient" id="Gradient_png2l"]
+offsets = PackedFloat32Array(0, 0.532468)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ldaqg"]
+gradient = SubResource("Gradient_png2l")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("4_f2674")
+scene_to_load = ExtResource("7_570a6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -670.0
@@ -51058,7 +51079,6 @@ shape = SubResource("RectangleShape2D_pff2y")
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_bs7m8")]
 visible = false
-scene_to_load = ExtResource("7_570a6")
 
 [node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
 offset_right = 44.0
@@ -51079,6 +51099,12 @@ offset_bottom = 26.0
 text = "TEST LEVEL
 MOVEMENT - AWSD"
 
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
+offset_left = 33.0
+offset_right = 77.0
+offset_bottom = 24.0
+script = ExtResource("18_86urp")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_us8jb")
 volume_db = -20.0
@@ -51098,6 +51124,16 @@ move_dir = Vector2(50, 0)
 position = Vector2(699, 17)
 move_dir = Vector2(0, 30)
 
+[node name="SnowParticles" type="GPUParticles2D" parent="."]
+position = Vector2(512, -2)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_hdlsv")
+texture = SubResource("GradientTexture2D_ldaqg")
+preprocess = 7.11
+speed_scale = 0.5
+visibility_rect = Rect2(-800, -100, 1600, 200)
+
 [connection signal="body_entered" from="ExitTestArea" to="ExitTestArea" method="_on_body_entered"]
 [connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]
+[connection signal="toggled" from="CanvasLayer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

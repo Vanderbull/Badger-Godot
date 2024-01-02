@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5p4278dg78ge"]
+[gd_scene load_steps=20 format=3 uid="uid://c5p4278dg78ge"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_d7wrg"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_5nvob"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://sr7ls8mruqib" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="5_tbmn4"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_uw1wn"]
 [ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="7_th6xm"]
+[ext_resource type="PackedScene" uid="uid://1lrthnsd1au8" path="res://UI/transitioner.tscn" id="9_qwy52"]
+[ext_resource type="PackedScene" uid="uid://dtduo5mu2jc5g" path="res://Levels/forrest_level.tscn" id="10_g7vnq"]
+[ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="11_n5hvg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("2_5nvob")
@@ -4464,6 +4467,17 @@ shape = SubResource("RectangleShape2D_pff2y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Transitioner" parent="CanvasLayer" instance=ExtResource("9_qwy52")]
+visible = false
+scene_to_load = ExtResource("10_g7vnq")
+
+[node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
+offset_right = 44.0
+offset_bottom = 24.0
+focus_mode = 0
+script = ExtResource("11_n5hvg")
+transitioner = NodePath("../Transitioner")
+
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -4482,3 +4496,4 @@ autoplay = true
 [node name="Snail" parent="." instance=ExtResource("7_th6xm")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]
