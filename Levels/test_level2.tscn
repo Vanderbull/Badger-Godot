@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c447owxmcvl2u"]
+[gd_scene load_steps=15 format=3 uid="uid://c447owxmcvl2u"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uqsx4"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_pxqvd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="7_7dk7p"]
 [ext_resource type="PackedScene" uid="uid://c5p4278dg78ge" path="res://Levels/settlement_level.tscn" id="7_epctr"]
 [ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="7_mf7t2"]
+[ext_resource type="PackedScene" uid="uid://dk38o15espn38" path="res://Enemies/enemy.tscn" id="11_am6i6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("2_pxqvd")
@@ -1499,6 +1500,7 @@ shape = SubResource("RectangleShape2D_pff2y")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_mkvtc")]
+visible = false
 scene_to_load = ExtResource("7_epctr")
 
 [node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
@@ -1524,6 +1526,9 @@ volume_db = -20.0
 autoplay = true
 
 [node name="Snail" parent="." instance=ExtResource("7_7dk7p")]
+
+[node name="Enemy" parent="." instance=ExtResource("11_am6i6")]
+position = Vector2(138, 26)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]

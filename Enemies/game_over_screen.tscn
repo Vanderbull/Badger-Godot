@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuil3n2jpmn0j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s38dj"]
+font_size = 32
+
+[node name="GameOverScreen" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_s38dj")
+horizontal_alignment = 1

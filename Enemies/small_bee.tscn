@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://crp52ghnpnrp"]
+
+[ext_resource type="Script" path="res://Enemies/small_bee.gd" id="1_v0bv8"]
+[ext_resource type="Texture2D" uid="uid://b86pdjcegjirj" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_rheup"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jiqq2"]
+
+[node name="SmallBee" type="Area2D"]
+script = ExtResource("1_v0bv8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_rheup")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jiqq2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
