@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c447owxmcvl2u"]
+[gd_scene load_steps=11 format=3 uid="uid://c447owxmcvl2u"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uqsx4"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_pxqvd"]
@@ -6,11 +6,7 @@
 [ext_resource type="Script" path="res://Levels/test_level2.gd" id="4_1ummr"]
 [ext_resource type="Texture2D" uid="uid://bbxdxr0xgc1wo" path="res://icon.svg" id="5_y7p6w"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_1k50d"]
-[ext_resource type="PackedScene" uid="uid://1lrthnsd1au8" path="res://UI/transitioner.tscn" id="6_t55u2"]
-[ext_resource type="PackedScene" uid="uid://b68020xdvytbx" path="res://Levels/mountains_level.tscn" id="7_5ar6n"]
 [ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="7_7dk7p"]
-[ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="7_m45hj"]
-[ext_resource type="PackedScene" uid="uid://dk38o15espn38" path="res://Enemies/enemy.tscn" id="8_dpycb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("2_pxqvd")
@@ -1497,16 +1493,6 @@ shape = SubResource("RectangleShape2D_pff2y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_t55u2")]
-scene_to_load = ExtResource("7_5ar6n")
-
-[node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
-offset_right = 44.0
-offset_bottom = 24.0
-focus_mode = 0
-script = ExtResource("7_m45hj")
-transitioner = NodePath("../Transitioner")
-
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -1524,8 +1510,4 @@ autoplay = true
 
 [node name="Snail" parent="." instance=ExtResource("7_7dk7p")]
 
-[node name="Enemy" parent="." instance=ExtResource("8_dpycb")]
-position = Vector2(156, 45)
-
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]
