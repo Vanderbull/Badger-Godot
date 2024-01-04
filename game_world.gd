@@ -6,6 +6,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#var Mushroom = get_tree().get_nodes_in_group("LevelOne")
+	#$CanvasLayer/Label.text = "Mushrooms: " + str(Mushroom.size())
 	get_tree().paused = false
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.level_completed.connect(show_level_completed)
