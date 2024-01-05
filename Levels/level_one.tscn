@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_i3urc"]
 [ext_resource type="PackedScene" uid="uid://ctpglbiomn0rq" path="res://Levels/level_two.tscn" id="2_k8jts"]
 [ext_resource type="PackedScene" uid="uid://tpa6ay3tx4ps" path="res://Levels/mushroom.tscn" id="4_by7da"]
-[ext_resource type="Script" path="res://Levels/mushroom.gd" id="5_djdwj"]
+[ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_ivoxa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cu4w4"]
 texture = ExtResource("2_i3urc")
@@ -1447,23 +1447,23 @@ position = Vector2(1313, -23)
 
 [node name="Mushroom" parent="." index="5" groups=["LevelOne"] instance=ExtResource("4_by7da")]
 position = Vector2(183, 31)
-script = ExtResource("5_djdwj")
 
 [node name="Mushroom2" parent="." index="6" groups=["LevelOne"] instance=ExtResource("4_by7da")]
 position = Vector2(409, -50)
-script = ExtResource("5_djdwj")
 
 [node name="Mushroom3" parent="." index="7" groups=["LevelOne"] instance=ExtResource("4_by7da")]
 position = Vector2(599, -147)
-script = ExtResource("5_djdwj")
 
 [node name="Mushroom4" parent="." index="8" groups=["LevelOne"] instance=ExtResource("4_by7da")]
 position = Vector2(788, -243)
-script = ExtResource("5_djdwj")
 
 [node name="Mushroom5" parent="." index="9" groups=["LevelOne"] instance=ExtResource("4_by7da")]
 position = Vector2(942, 28)
-script = ExtResource("5_djdwj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
+stream = ExtResource("6_ivoxa")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="body_entered" from="Mushroom" to="Mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom2" to="Mushroom2" method="_on_body_entered"]
