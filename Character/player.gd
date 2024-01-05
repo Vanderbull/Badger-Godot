@@ -50,6 +50,9 @@ func _physics_process(delta):
 	move_and_slide()
 	update_animation()
 	update_facing_direction()
+	$"../CanvasLayer/Label2".text = str(position.y)
+	if position.y > 100:
+		respawn()
 	
 func update_animation():
 	if not animation_locked:
@@ -91,3 +94,6 @@ func _on_animated_sprite_2d_animation_finished():
 func attack():
 	animated_sprite.play("attack")
 	animation_locked = true
+	
+func respawn():
+	get_tree().reload_current_scene()
