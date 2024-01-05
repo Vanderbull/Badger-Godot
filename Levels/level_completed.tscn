@@ -20,5 +20,5 @@ offset_bottom = 194.0
 
 [node name="Label" type="Label" parent="CenterContainer"]
 layout_mode = 2
-text = "LEVEL COMPLEETEDD"
+text = "GAME OVER!"
 label_settings = SubResource("LabelSettings_kanre")
