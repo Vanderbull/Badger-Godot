@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cssgsr1itpwmb"]
+[gd_scene load_steps=11 format=3 uid="uid://cssgsr1itpwmb"]
 
 [ext_resource type="Script" path="res://game_world.gd" id="1_babsb"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="1_q3ja8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://x543oslwxw5c" path="res://Levels/level_completed.tscn" id="3_7sabn"]
 [ext_resource type="PackedScene" uid="uid://dtf6hd3kfy0bm" path="res://Levels/exit_area.tscn" id="6_wqaa1"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="7_rs3d8"]
+[ext_resource type="PackedScene" uid="uid://djy0wcxeq511m" path="res://UI/pause_menu.tscn" id="8_v6cj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pity"]
 texture = ExtResource("3_6lkfe")
@@ -1459,6 +1460,7 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_6pity")
 
 [node name="GameWorld" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_babsb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -1506,3 +1508,8 @@ offset_bottom = 23.0
 [node name="Label2" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="Menus" node_paths=PackedStringArray("game_world") instance=ExtResource("8_v6cj5")]
+game_world = NodePath("../..")

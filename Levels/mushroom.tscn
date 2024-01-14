@@ -21,4 +21,5 @@ texture = SubResource("AtlasTexture_l621i")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_nqjsy")
+volume_db = -20.0
 bus = &"SFX"

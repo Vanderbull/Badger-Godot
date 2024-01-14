@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="3_faruq"]
 
 [node name="LevelTwo" groups=["LevelTwo"] instance=ExtResource("1_p458a")]
+process_mode = 1
 
 [node name="TextureRect" parent="." index="0"]
 offset_left = -438.0

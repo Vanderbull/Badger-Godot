@@ -1445,6 +1445,7 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_cu4w4")
 
 [node name="LevelOne" groups=["LevelOne"] instance=ExtResource("1_opyew")]
+process_mode = 1
 next_level = ExtResource("2_k8jts")
 
 [node name="TextureRect" parent="." index="0"]
