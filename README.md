@@ -26,6 +26,9 @@ Godot version 4.2.1
 # Run project
 
 Run Godot executable
+
+# Commit changes
+Here there should be some guide how to commit changes to Github using git.
 <!-- end:code block -->
 
 
