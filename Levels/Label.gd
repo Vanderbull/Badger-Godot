@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if(get_tree().get_nodes_in_group("LevelOne")):
 		var Mushroom = get_tree().get_nodes_in_group("LevelOne")
 		text = "Mushrooms(one): " + str(Mushroom.size()-1)
