@@ -42,3 +42,4 @@ Here there should be some guide how to commit changes to Github using git.
 
 # References
 https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
+https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html
