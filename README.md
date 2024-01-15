@@ -6,7 +6,7 @@ If you are new to Git and Godot 4 I though that I would maybe give you some help
 to get you started on Linux primarily.
 
 1. Install the application "git" on your development machine.
-2. Download Godot 4.2.1 from their website https://godotengine.org/ and unpack it
+2. Download Godot 4.2.1 from their website https://godotengine.org/ and unpack it or install it as a flatpak
 3. Clone the project as described below in the "Setup" section.
 
 ## Setup
