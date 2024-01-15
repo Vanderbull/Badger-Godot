@@ -29,6 +29,11 @@ Run Godot executable
 
 # Commit changes
 Here there should be some guide how to commit changes to Github using git.
+
+# Useful to know file paths
+## user://
+~/.local/share/godot/app_userdata/Badger-Godot
+
 <!-- end:code block -->
 
 
