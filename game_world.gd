@@ -18,8 +18,19 @@ var game_paused : bool  = false:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#var Mushroom = get_tree().get_nodes_in_group("LevelOne")
-	#$CanvasLayer/Label.text = "Mushrooms: " + str(Mushroom.size())
+	var Mushroom = get_tree().get_nodes_in_group("LevelOne")
+	
+	if(get_tree().get_nodes_in_group("LevelOne")):
+		print("Game world - Level One")
+		Mushroom = get_tree().get_nodes_in_group("LevelOne")
+		print(Mushroom.size()-1)
+	else:
+		print("Game world - Level Two")
+		Mushroom = get_tree().get_nodes_in_group("LevelTwo")
+		print(Mushroom.size()-1)
+		
+	# This is needed for Level One to display the label
+	$CanvasLayer/Label.text = "Mushrooms: " + str(Mushroom.size()-1)
 	get_tree().paused = false
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.level_completed.connect(show_level_completed)

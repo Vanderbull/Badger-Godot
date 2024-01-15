@@ -1,6 +1,6 @@
 extends Area2D
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	queue_free()
 	var ExitArea = get_tree().get_nodes_in_group("ExitArea")
 	if ExitArea.size() == 1:
