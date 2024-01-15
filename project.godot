@@ -29,6 +29,10 @@ window/stretch/scale=4.0
 
 movie_writer/movie_file="/home/rickard/Videos/Badger-Godot.avi"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 up={
