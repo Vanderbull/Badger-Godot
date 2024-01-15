@@ -1459,7 +1459,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_6pity")
 
-[node name="GameWorld" type="Node2D"]
+[node name="GameWorld" type="Node2D" groups=["Persist"]]
 process_mode = 3
 script = ExtResource("1_babsb")
 

@@ -55,5 +55,6 @@ text = "RESUME"
 layout_mode = 2
 text = "EXIT"
 
+[connection signal="pressed" from="Panel/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

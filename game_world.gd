@@ -46,4 +46,15 @@ func _input(event):
 func show_level_completed():
 	level_completed.show()
 	get_tree().paused = true
+	
+	
+func save():
+	print("LevelOne save called")
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+	}
+	return save_dict
 
