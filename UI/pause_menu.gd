@@ -55,6 +55,7 @@ func _on_save_pressed():
 # is path independent.
 func _on_load_pressed():
 	print("Loading savegame")
+	
 	if not FileAccess.file_exists("user://savegame.txt"):
 		return # Error! We don't have a save to load.
 
@@ -64,7 +65,17 @@ func _on_load_pressed():
 	# For our example, we will accomplish this by deleting saveable objects.
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for i in save_nodes:
-		i.queue_free()
+		if(i != null):
+			i.free()
+		#i.queue_free()
+
+		
+	#var player = get_tree().get_nodes_in_group("Player")[0] 
+	#if player == null:
+		#print("Player is a null")
+		#return
+	#else :
+		#print("Player is not null")
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
@@ -89,13 +100,24 @@ func _on_load_pressed():
 		var new_object = load(node_data["filename"]).instantiate()
 		
 		get_node(node_data["parent"]).add_child(new_object)
+		
+		print(new_object.name)
+		print(node_data["groups"][0])
+		if(node_data["groups"][0] == "Player"):
+			new_object.name = "Player"
 		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 
 		# Test to add child to group Persist
 		new_object.add_to_group("Persist")
 		
+		# Add RemoteTransform2D here as child somehow
+		print(json_string)
+
+
+		
 		# Now we set the remaining variables.
 		for i in node_data.keys():
+			print(i)
 			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
 				continue
 			new_object.set(i, node_data[i])

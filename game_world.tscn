@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cssgsr1itpwmb"]
+[gd_scene load_steps=12 format=3 uid="uid://cssgsr1itpwmb"]
 
 [ext_resource type="Script" path="res://game_world.gd" id="1_babsb"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="1_q3ja8"]
 [ext_resource type="PackedScene" uid="uid://c3tdpxtcv6qlx" path="res://Levels/level_tile_map.tscn" id="2_i2vah"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="3_6lkfe"]
 [ext_resource type="PackedScene" uid="uid://x543oslwxw5c" path="res://Levels/level_completed.tscn" id="3_7sabn"]
+[ext_resource type="PackedScene" uid="uid://dvi5frghq722i" path="res://Character/remote_transform_2d.tscn" id="4_0ica6"]
 [ext_resource type="PackedScene" uid="uid://dtf6hd3kfy0bm" path="res://Levels/exit_area.tscn" id="6_wqaa1"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="7_rs3d8"]
 [ext_resource type="PackedScene" uid="uid://djy0wcxeq511m" path="res://UI/pause_menu.tscn" id="8_v6cj5"]
@@ -1481,8 +1482,7 @@ texture = ExtResource("7_rs3d8")
 jump_velocity = -300.0
 double_jump_velocity = -300.0
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+[node name="RemoteTransform2D" parent="Player" instance=ExtResource("4_0ica6")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0

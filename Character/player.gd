@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped : bool = false
@@ -13,6 +14,10 @@ var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air : bool = false
 
+func _ready():
+	print("Ready the player for gaming")
+	
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -105,6 +110,10 @@ func save():
 		"parent" : get_parent().get_path(),
 		"pos_x" : position.x, # Vector2 is not supported by JSON
 		"pos_y" : position.y,
+		"groups" : get_groups(),
+		"speed" : speed,
+		"jump_velocity" : jump_velocity,
+		"double_jump_velocity" : double_jump_velocity,
 	}
 	return save_dict
 
