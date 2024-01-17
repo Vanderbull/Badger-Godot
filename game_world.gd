@@ -49,7 +49,7 @@ func show_level_completed():
 	
 	
 func save():
-	print("LevelOne save called")
+	print("Level save called")
 	var save_dict = {
 		"filename" : get_scene_file_path(),
 		"parent" : get_parent().get_path(),
