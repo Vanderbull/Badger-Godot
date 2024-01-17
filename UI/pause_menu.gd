@@ -54,6 +54,7 @@ func _on_save_pressed():
 # Note: This can be called from anywhere inside the tree. This function
 # is path independent.
 func _on_load_pressed():
+	print("Loading savegame")
 	if not FileAccess.file_exists("user://savegame.txt"):
 		return # Error! We don't have a save to load.
 
@@ -70,7 +71,7 @@ func _on_load_pressed():
 	var save_game = FileAccess.open("user://savegame.txt", FileAccess.READ)
 	while save_game.get_position() < save_game.get_length():
 		var json_string = save_game.get_line()
-
+		
 		# Creates the helper class to interact with JSON
 		var json = JSON.new()
 
@@ -84,10 +85,15 @@ func _on_load_pressed():
 		var node_data = json.get_data()
 
 		# Firstly, we need to create the object and add it to the tree and set its position.
+		#var new_object = load(node_data["filename"]).instantiate()
 		var new_object = load(node_data["filename"]).instantiate()
+		
 		get_node(node_data["parent"]).add_child(new_object)
 		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 
+		# Test to add child to group Persist
+		new_object.add_to_group("Persist")
+		
 		# Now we set the remaining variables.
 		for i in node_data.keys():
 			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
