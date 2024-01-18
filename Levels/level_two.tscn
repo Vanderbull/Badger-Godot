@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctpglbiomn0rq"]
+[gd_scene load_steps=9 format=3 uid="uid://ctpglbiomn0rq"]
 
 [ext_resource type="PackedScene" uid="uid://cssgsr1itpwmb" path="res://game_world.tscn" id="1_p458a"]
 [ext_resource type="Script" path="res://Character/remote_transform_2d.gd" id="2_6jy2r"]
 [ext_resource type="PackedScene" uid="uid://tpa6ay3tx4ps" path="res://Levels/mushroom.tscn" id="2_d6bad"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="3_faruq"]
 [ext_resource type="Script" path="res://Levels/Label.gd" id="4_6dacj"]
+[ext_resource type="Script" path="res://Levels/Label3.gd" id="6_adij8"]
+[ext_resource type="PackedScene" uid="uid://b7sb77d0c35dk" path="res://Levels/treasure_chest.tscn" id="6_cjx7m"]
+[ext_resource type="Script" path="res://Levels/treasure_chest.gd" id="7_kau2v"]
 
 [node name="LevelTwo" groups=["LevelTwo"] instance=ExtResource("1_p458a")]
 process_mode = 1
@@ -51,8 +54,19 @@ offset_right = 42.0
 offset_bottom = 60.0
 script = ExtResource("4_6dacj")
 
+[node name="Label3" type="Label" parent="CanvasLayer" index="3"]
+offset_left = 256.0
+offset_right = 296.0
+offset_bottom = 23.0
+script = ExtResource("6_adij8")
+
+[node name="TreasureChest" parent="." index="13" groups=["LevelTwo", "TreasureChest"] instance=ExtResource("6_cjx7m")]
+position = Vector2(104, 41)
+script = ExtResource("7_kau2v")
+
 [connection signal="body_entered" from="Mushroom" to="Mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom2" to="Mushroom2" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom3" to="Mushroom3" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom4" to="Mushroom4" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom5" to="Mushroom5" method="_on_body_entered"]
+[connection signal="body_entered" from="TreasureChest" to="TreasureChest" method="_on_body_entered"]

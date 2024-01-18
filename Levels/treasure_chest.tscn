@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7sb77d0c35dk"]
+
+[ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_578ma"]
+[ext_resource type="AudioStream" uid="uid://b12nt7emouen1" path="res://Music/mouse-click-153941.mp3" id="2_tdv7i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejvhn"]
+atlas = ExtResource("1_578ma")
+region = Rect2(289.265, 273.413, 30.7567, 31.8092)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pujtc"]
+size = Vector2(32, 32)
+
+[node name="TreasureChest" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ejvhn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pujtc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tdv7i")
+volume_db = -20.0
+bus = &"SFX"

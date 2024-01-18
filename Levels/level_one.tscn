@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bejvviukju05h"]
+[gd_scene load_steps=11 format=3 uid="uid://bejvviukju05h"]
 
 [ext_resource type="PackedScene" uid="uid://cssgsr1itpwmb" path="res://game_world.tscn" id="1_opyew"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_i3urc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tpa6ay3tx4ps" path="res://Levels/mushroom.tscn" id="4_by7da"]
 [ext_resource type="Script" path="res://Levels/Label.gd" id="6_383hb"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_ivoxa"]
+[ext_resource type="Script" path="res://Levels/Label3.gd" id="8_rv0m6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cu4w4"]
 texture = ExtResource("2_i3urc")
@@ -1504,6 +1505,13 @@ offset_top = 30.0
 offset_right = 44.0
 offset_bottom = 53.0
 script = ExtResource("6_383hb")
+
+[node name="Label3" type="Label" parent="CanvasLayer" index="3"]
+offset_left = 332.0
+offset_top = -1.0
+offset_right = 372.0
+offset_bottom = 22.0
+script = ExtResource("8_rv0m6")
 
 [connection signal="body_entered" from="Mushroom" to="Mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom7" to="Mushroom7" method="_on_body_entered"]
