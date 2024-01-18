@@ -47,7 +47,9 @@ func show_level_completed():
 	level_completed.show()
 	await get_tree().create_timer(1.0).timeout
 	level_completed.hide()
-	game_paused = !game_paused
+	get_tree().change_scene_to_file("res://Levels/level_one.tscn")
+	#get_tree().reload_current_scene()
+	#game_paused = !game_paused
 	#get_tree().paused = true
 	
 	
