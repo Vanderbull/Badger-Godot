@@ -45,7 +45,10 @@ func _input(event):
 # Ending of the game
 func show_level_completed():
 	level_completed.show()
-	get_tree().paused = true
+	await get_tree().create_timer(1.0).timeout
+	level_completed.hide()
+	game_paused = !game_paused
+	#get_tree().paused = true
 	
 	
 func save():

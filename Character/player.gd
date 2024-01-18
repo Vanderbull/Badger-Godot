@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var stats: Resource
+
 @export var speed : float = 200.0
 @export var jump_velocity : float = -150.0
 @export var double_jump_velocity : float = -100
@@ -16,7 +18,11 @@ var was_in_air : bool = false
 
 func _ready():
 	print("Ready the player for gaming")
-	
+	if stats:
+		stats.health = 10
+		print(stats.health)
+		print(stats.speed)
+		# Prints "10"
 	
 func _physics_process(delta):
 	# Add the gravity.
