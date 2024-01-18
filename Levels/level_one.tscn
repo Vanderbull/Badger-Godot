@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bejvviukju05h"]
+[gd_scene load_steps=16 format=3 uid="uid://bejvviukju05h"]
 
 [ext_resource type="PackedScene" uid="uid://cssgsr1itpwmb" path="res://game_world.tscn" id="1_opyew"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_i3urc"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://Levels/Label.gd" id="6_383hb"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_ivoxa"]
 [ext_resource type="Script" path="res://Levels/Label3.gd" id="8_rv0m6"]
+[ext_resource type="Script" path="res://Levels/Label4.gd" id="10_6urvn"]
+[ext_resource type="PackedScene" uid="uid://djj4b4vehc6m" path="res://Levels/spikes.tscn" id="10_gypsu"]
+[ext_resource type="Script" path="res://Levels/spikes.gd" id="11_qjtsq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cu4w4"]
 texture = ExtResource("2_i3urc")
@@ -2625,6 +2628,19 @@ offset_right = 372.0
 offset_bottom = 22.0
 script = ExtResource("8_rv0m6")
 
+[node name="Label4" type="Label" parent="CanvasLayer" index="4"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("10_6urvn")
+
+[node name="Spikes" parent="." index="16" groups=["LevelOne", "Spikes"] instance=ExtResource("10_gypsu")]
+position = Vector2(714, 111)
+script = ExtResource("11_qjtsq")
+
+[node name="Spikes2" parent="." index="17" groups=["LevelOne", "Spikes"] instance=ExtResource("10_gypsu")]
+position = Vector2(830, 111)
+script = ExtResource("11_qjtsq")
+
 [connection signal="body_entered" from="Mushroom" to="Mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom7" to="Mushroom7" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom6" to="Mushroom6" method="_on_body_entered"]
@@ -2633,3 +2649,5 @@ script = ExtResource("8_rv0m6")
 [connection signal="body_entered" from="Mushroom4" to="Mushroom4" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom5" to="Mushroom5" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom8" to="Mushroom8" method="_on_body_entered"]
+[connection signal="body_entered" from="Spikes" to="Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="Spikes2" to="Spikes2" method="_on_body_entered"]

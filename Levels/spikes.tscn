@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://djj4b4vehc6m"]
+
+[ext_resource type="Texture2D" uid="uid://dab1knb8blb3d" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Traps.png" id="1_m76i3"]
+[ext_resource type="AudioStream" uid="uid://dbp4xoet2ethi" path="res://Music/whoosh-6316.mp3" id="2_d7iiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsnom"]
+atlas = ExtResource("1_m76i3")
+region = Rect2(1, 329, 128, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2hgs"]
+size = Vector2(96, 32)
+
+[node name="Spikes" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_gsnom")
+region_rect = Rect2(262, 310, 128, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k2hgs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d7iiq")
+volume_db = -20.0

@@ -62,8 +62,8 @@ func _physics_process(delta):
 	update_animation()
 	update_facing_direction()
 	$"../CanvasLayer/Label2".text = str(position.y)
-	if position.y > 100:
-		respawn()
+	#if position.y > 100:
+		#respawn()
 	
 func update_animation():
 	if not animation_locked:
