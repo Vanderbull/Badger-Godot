@@ -20,7 +20,7 @@ offset_bottom = 323.0
 
 [node name="Player" parent="." index="1" groups=["Persist"]]
 
-[node name="RemoteTransform2D" parent="Player" index="2" groups=["Persist"]]
+[node name="RemoteTransform2D" parent="Player" index="8" groups=["Persist"]]
 script = ExtResource("2_6jy2r")
 
 [node name="LevelTileMap" parent="." index="3"]

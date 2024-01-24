@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var audio_player = $AudioStreamPlayer
 
-func _on_body_entered(_body):
+func _on_body_entered(body):
 	get_tree().reload_current_scene()
 	return
 	print("Spikes body entered")

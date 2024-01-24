@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://b7hn14imsc5yo"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_wg88s"]
+
+[resource]
+script = ExtResource("1_wg88s")
+item_name = "Bat"
+price = 1
+hp = 10
+attack = 10
+defense = 10

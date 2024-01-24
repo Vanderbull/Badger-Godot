@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://tpa6ay3tx4ps"]
+[gd_scene load_steps=7 format=3 uid="uid://tpa6ay3tx4ps"]
 
 [ext_resource type="Script" path="res://Levels/mushroom.gd" id="1_1c88h"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_f5o5k"]
 [ext_resource type="AudioStream" uid="uid://c8uwqm53w3lix" path="res://Music/tap-notification-180637.mp3" id="3_nqjsy"]
+[ext_resource type="Script" path="res://Enemies/Damageable.gd" id="4_tpj6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxqk"]
 
@@ -23,3 +24,6 @@ texture = SubResource("AtlasTexture_l621i")
 stream = ExtResource("3_nqjsy")
 volume_db = -20.0
 bus = &"SFX"
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("4_tpj6d")

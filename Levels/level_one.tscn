@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bejvviukju05h"]
+[gd_scene load_steps=23 format=3 uid="uid://bejvviukju05h"]
 
 [ext_resource type="PackedScene" uid="uid://cssgsr1itpwmb" path="res://game_world.tscn" id="1_opyew"]
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_i3urc"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://Levels/Label4.gd" id="10_6urvn"]
 [ext_resource type="PackedScene" uid="uid://djj4b4vehc6m" path="res://Levels/spikes.tscn" id="10_gypsu"]
 [ext_resource type="Script" path="res://Levels/spikes.gd" id="11_qjtsq"]
+[ext_resource type="PackedScene" uid="uid://cfadfliig2vyc" path="res://Enemies/fire_monster.tscn" id="13_uluam"]
+[ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="14_uw5n1"]
+[ext_resource type="Script" path="res://Enemies/Damageable.gd" id="15_1dqv7"]
+[ext_resource type="Script" path="res://Levels/TheRoom.gd" id="15_5idp6"]
 
 [sub_resource type="Gradient" id="Gradient_japts"]
 offsets = PackedFloat32Array(0, 0.694805)
@@ -2573,26 +2577,11 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_cu4w4")
 sources/1 = SubResource("TileSetAtlasSource_0mlfx")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5j87v"]
-blend_mode = 1
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vy2pt"]
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-gravity = Vector3(0, -98, 0)
-turbulence_enabled = true
-
-[sub_resource type="Gradient" id="Gradient_cgctl"]
-colors = PackedColorArray(0, 0, 0, 0.815686, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xbc8n"]
-gradient = SubResource("Gradient_cgctl")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovdqt"]
 
 [node name="LevelOne" groups=["LevelOne"] instance=ExtResource("1_opyew")]
 process_mode = 1
+mob_scene = ExtResource("13_uluam")
 next_level = ExtResource("2_k8jts")
 
 [node name="PointLight2D" type="PointLight2D" parent="." index="0"]
@@ -2608,7 +2597,7 @@ offset_bottom = 323.0
 
 [node name="Player" parent="." index="2" groups=["Persist"]]
 
-[node name="RemoteTransform2D" parent="Player" index="2" groups=["Persist"]]
+[node name="RemoteTransform2D" parent="Player" index="8" groups=["Persist"]]
 script = ExtResource("3_kvvk1")
 
 [node name="LevelTileMap" parent="." index="4"]
@@ -2675,17 +2664,18 @@ script = ExtResource("11_qjtsq")
 position = Vector2(832, 152)
 script = ExtResource("11_qjtsq")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="19"]
-modulate = Color(1, 1, 1, 0.592157)
-self_modulate = Color(1, 1, 1, 0.509804)
-material = SubResource("CanvasItemMaterial_5j87v")
-position = Vector2(768, 136)
-process_material = SubResource("ParticleProcessMaterial_vy2pt")
-texture = SubResource("GradientTexture2D_xbc8n")
-lifetime = 4.0
-preprocess = 10.0
-explosiveness = 0.23
-randomness = 0.33
+[node name="Snail" parent="." index="19" instance=ExtResource("14_uw5n1")]
+position = Vector2(96, 24)
+
+[node name="TheRoom" type="Area2D" parent="." index="20"]
+position = Vector2(256, 16)
+script = ExtResource("15_5idp6")
+
+[node name="TheRoomCollision" type="CollisionShape2D" parent="TheRoom" index="0"]
+shape = SubResource("RectangleShape2D_ovdqt")
+
+[node name="Damageable" type="Node" parent="TheRoom" index="1"]
+script = ExtResource("15_1dqv7")
 
 [connection signal="body_entered" from="Mushroom" to="Mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom7" to="Mushroom7" method="_on_body_entered"]
@@ -2697,3 +2687,4 @@ randomness = 0.33
 [connection signal="body_entered" from="Mushroom8" to="Mushroom8" method="_on_body_entered"]
 [connection signal="body_entered" from="Spikes" to="Spikes" method="_on_body_entered"]
 [connection signal="body_entered" from="Spikes2" to="Spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="TheRoom" to="TheRoom" method="_on_body_entered"]

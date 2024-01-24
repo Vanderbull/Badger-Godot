@@ -28,19 +28,19 @@ func _physics_process(delta):
 	if Globals.Monkey <= 0:
 		Globals.Monkey = randi_range(0,150)
 		direction = randi_range(-1,1)
-		print("Direction set = ",direction)
-		print("Ticks set = ",Globals.Monkey)
+		#print("Direction set = ",direction)
+		#print("Ticks set = ",Globals.Monkey)
 
 	if direction == 1 && Globals.Monkey > 0:
 		velocity.x = SPEED
-		print("RIGHT")
+		#print("RIGHT")
 	elif direction == -1 && Globals.Monkey > 0:
-		print("LEFTs")
+		#print("LEFTs")
 		velocity.x = -SPEED
 	else:
-		print("IDLE")
+		#print("IDLE")
 		velocity.x = 0
 	
 	Globals.Monkey -= 1
-	print("Ticks set = ",Globals.Monkey)
+	#print("Ticks set = ",Globals.Monkey)
 	move_and_slide()

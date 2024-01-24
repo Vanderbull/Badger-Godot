@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://xxaoff7gwbrm"]
+[gd_scene load_steps=60 format=3 uid="uid://xxaoff7gwbrm"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_flj5s"]
 [ext_resource type="Texture2D" uid="uid://cf5vr3rdkcdr0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_uohqy"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b1dop62ij8uuy" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jump-End/Jump-End-Sheet.png" id="3_5s4db"]
 [ext_resource type="Texture2D" uid="uid://bolynyyobgkop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jump-Start/Jump-Start-Sheet.png" id="4_o4p5v"]
 [ext_resource type="Texture2D" uid="uid://cilbq1jmxocd0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png" id="5_fhfe2"]
+[ext_resource type="Script" path="res://Character/Sword.gd" id="9_jt3dt"]
+[ext_resource type="Script" path="res://Enemies/Damageable.gd" id="10_36b2s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_680ek"]
 atlas = ExtResource("2_xmdhu")
@@ -359,6 +361,53 @@ animations = [{
 radius = 8.0
 height = 44.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w7ne"]
+size = Vector2(20, 40)
+
+[sub_resource type="Animation" id="Animation_edvfy"]
+resource_name = "attack1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_uohqy")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwfw3"]
+_data = {
+"attack1": SubResource("Animation_edvfy")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_flj5s")
 stats = ExtResource("2_mvdfd")
@@ -372,4 +421,39 @@ autoplay = "idle"
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ry2ya")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_uohqy")
+
+[node name="SwordRight" type="Area2D" parent="."]
+script = ExtResource("9_jt3dt")
+
+[node name="SwordRightCollision" type="CollisionShape2D" parent="SwordRight"]
+position = Vector2(36, 0)
+shape = SubResource("RectangleShape2D_0w7ne")
+
+[node name="SwordLeft" type="Area2D" parent="."]
+script = ExtResource("9_jt3dt")
+
+[node name="SwordLeftCollision" type="CollisionShape2D" parent="SwordLeft"]
+position = Vector2(-36, 0)
+shape = SubResource("RectangleShape2D_0w7ne")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iwfw3")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iwfw3")
+}
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("10_36b2s")
+health = 120.0
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="SwordRight" to="SwordRight" method="_on_body_entered"]
+[connection signal="body_entered" from="SwordLeft" to="SwordLeft" method="_on_body_entered"]

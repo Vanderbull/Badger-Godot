@@ -1,11 +1,19 @@
 extends Area2D
 
+@export var damage : int = 10
+
 @onready var audio_player = $AudioStreamPlayer
 
-func _on_body_entered(_body):
-	print("Mushroom body entered")
+func _on_body_entered(body):
+	
+	print(body.name + " entered Shroom")
+	for child in body.get_children():
+		if child is Damageable:
+			print("Damageable")
+			child.hit(damage)
+			print_debug(body.name + " took " + str(damage) + ".")
+
 	if get_tree().get_nodes_in_group("LevelOne"):
-		print("Are where anytime soon")
 		audio_player.play()
 		await audio_player.finished
 		queue_free()
