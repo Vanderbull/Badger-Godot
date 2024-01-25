@@ -60,6 +60,19 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	move_and_slide()
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var body = collision.get_collider()
+		if body.name == "Snail":
+			print("Collided with: ", body.name)
+			if animated_sprite.flip_h == false:
+				position.x -= 50
+			else:
+				position.x += 50
+	#var collision = move_and_collide(velocity)
+	#if collision != null:
+		#var body = collision.get_collider()
+		#print("Collided with: ", body.name)
 	update_animation()
 	update_facing_direction()
 	$"../CanvasLayer/Label2".text = str(position.y)

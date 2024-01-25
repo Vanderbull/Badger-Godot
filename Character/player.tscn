@@ -11,6 +11,10 @@
 [ext_resource type="Script" path="res://Character/Sword.gd" id="9_jt3dt"]
 [ext_resource type="Script" path="res://Enemies/Damageable.gd" id="10_36b2s"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ry2ya"]
+radius = 8.0
+height = 44.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_680ek"]
 atlas = ExtResource("2_xmdhu")
 region = Rect2(0, 0, 96, 80)
@@ -357,10 +361,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ry2ya"]
-radius = 8.0
-height = 44.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w7ne"]
 size = Vector2(20, 40)
 
@@ -412,14 +412,14 @@ _data = {
 script = ExtResource("1_flj5s")
 stats = ExtResource("2_mvdfd")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ry2ya")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q1ej8")
 animation = &"idle"
 autoplay = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_ry2ya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
