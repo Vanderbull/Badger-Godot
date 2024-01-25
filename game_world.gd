@@ -20,6 +20,8 @@ var game_paused : bool  = false:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(ProjectSettings.get_setting("application/config/version"))
+	
 	var Mushroom = get_tree().get_nodes_in_group("LevelOne")
 	
 	if(get_tree().get_nodes_in_group("LevelOne")):
