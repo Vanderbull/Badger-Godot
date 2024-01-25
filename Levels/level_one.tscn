@@ -2668,6 +2668,7 @@ script = ExtResource("11_qjtsq")
 position = Vector2(96, 24)
 
 [node name="TheRoom" type="Area2D" parent="." index="20"]
+visible = false
 position = Vector2(256, 16)
 script = ExtResource("15_5idp6")
 

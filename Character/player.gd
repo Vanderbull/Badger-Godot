@@ -105,12 +105,18 @@ func _on_animated_sprite_2d_animation_finished():
 		animation_locked = false
 		$SwordRight.visible = false
 		$SwordRight.monitoring = false
+		$SwordLeft.visible = false
+		$SwordLeft.monitoring = false
 		
 func attack():
 	animated_sprite.play("attack")
 	animation_locked = true
-	$SwordRight.visible = true
-	$SwordRight.monitoring = true
+	if animated_sprite.flip_h == false:
+		$SwordRight.visible = true
+		$SwordRight.monitoring = true
+	else:
+		$SwordLeft.visible = true
+		$SwordLeft.monitoring = true
 	
 func respawn():
 	get_tree().reload_current_scene()
