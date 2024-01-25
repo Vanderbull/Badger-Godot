@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="Badger-Godot"
-config/version="0.1"
+config/description="MAJOR.MINOR.PATCH (e.g 0.2.13)
+PATCH - Whenever you make a backward-compatible bug fix, no new functionality is added.
+
+MINOR - Whenever you add new functionality in a backward-compatible manner, old functionalities are preserved.
+
+MAJOR - Whenever you make incompatible API changes known as \"breaking change\". That means, that the old part of your software will work differently and users of your software must accommodate the new ways
+
+PRE - It stands for pre-release. Using the PRE segment is optional, but could be quite useful. If you are working on the next big release of your project, you may not get it stable on the first try. It will take at least a few iterations to get it right. You could use alpha ~> beta ~> rc (release candidate) methodology to tag your progress on the semantic release. Each of those tags could be incremented, so from rc1 you can go to rc2. That will give you very granular control over your releases."
+config/version="0.0.5"
 run/main_scene="res://Levels/level_one.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://boot-splash.png"
 config/icon="res://icon.svg"
 
 [autoload]
