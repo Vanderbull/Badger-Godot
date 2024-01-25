@@ -426,6 +426,7 @@ visible = false
 texture = ExtResource("1_uohqy")
 
 [node name="SwordRight" type="Area2D" parent="."]
+monitorable = false
 script = ExtResource("9_jt3dt")
 
 [node name="SwordRightCollision" type="CollisionShape2D" parent="SwordRight"]
@@ -433,6 +434,7 @@ position = Vector2(36, 0)
 shape = SubResource("RectangleShape2D_0w7ne")
 
 [node name="SwordLeft" type="Area2D" parent="."]
+monitorable = false
 script = ExtResource("9_jt3dt")
 
 [node name="SwordLeftCollision" type="CollisionShape2D" parent="SwordLeft"]

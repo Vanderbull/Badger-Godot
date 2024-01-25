@@ -48,9 +48,8 @@ func _physics_process(delta):
 			
 	# Handle Attack.
 	if Input.is_action_just_pressed("attack"):
-		$SwordLeft.monitoring = true
 		attack()
-		$SwordLeft.monitoring = false
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -109,6 +108,7 @@ func _on_animated_sprite_2d_animation_finished():
 		$SwordLeft.monitoring = false
 		
 func attack():
+	print("Player attacking")
 	animated_sprite.play("attack")
 	animation_locked = true
 	if animated_sprite.flip_h == false:
