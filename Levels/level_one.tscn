@@ -2667,7 +2667,16 @@ script = ExtResource("11_qjtsq")
 [node name="Snail" parent="." index="19" instance=ExtResource("14_uw5n1")]
 position = Vector2(96, 24)
 
-[node name="TheRoom" type="Area2D" parent="." index="20"]
+[node name="Snail2" parent="." index="20" instance=ExtResource("14_uw5n1")]
+position = Vector2(1264, 16)
+
+[node name="Snail3" parent="." index="21" instance=ExtResource("14_uw5n1")]
+position = Vector2(1704, 16)
+
+[node name="Snail4" parent="." index="22" instance=ExtResource("14_uw5n1")]
+position = Vector2(984, -248)
+
+[node name="TheRoom" type="Area2D" parent="." index="23"]
 visible = false
 position = Vector2(256, 16)
 script = ExtResource("15_5idp6")
