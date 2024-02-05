@@ -22,25 +22,37 @@ var game_paused : bool  = false:
 func _ready():
 	print(ProjectSettings.get_setting("application/config/version"))
 	
-	var Mushroom = get_tree().get_nodes_in_group("LevelOne")
+	var Mushroom = 0
 	
 	if(get_tree().get_nodes_in_group("LevelOne")):
-		print("Game world - Level One")
-		Mushroom = get_tree().get_nodes_in_group("LevelOne")
-		print(Mushroom.size()-1)
+		Mushroom = get_tree().get_nodes_in_group("Mushroom")
 	else:
-		print("Game world - Level Two")
-		Mushroom = get_tree().get_nodes_in_group("LevelTwo")
-		print(Mushroom.size()-1)
+		Mushroom = get_tree().get_nodes_in_group("Mushroom")
 		
-	# This is needed for Level One to display the label
-	$CanvasLayer/Label.text = "Mushrooms: " + str(Mushroom.size()-1)
+	$CanvasLayer/MushroomCounter.text = "Mushrooms: " + str(Mushroom.size())
 	get_tree().paused = false
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.level_completed.connect(show_level_completed)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
-
+func _process(delta):
+	var Mushroom = 0
+	if(get_tree().get_nodes_in_group("LevelOne")):
+		Mushroom = get_tree().get_nodes_in_group("Mushroom")
+	else:
+		Mushroom = get_tree().get_nodes_in_group("Mushroom")
+	$CanvasLayer/MushroomCounter.text = "Mushrooms: " + str(Mushroom.size())
+	
+	if get_tree().get_nodes_in_group("LevelOne"):
+			if Mushroom.size() == 0:
+				print("Evaluating Mushroom size")
+				Events.level_completed.emit()
+				get_tree().change_scene_to_file("res://Levels/level_two.tscn")
+	elif get_tree().get_nodes_in_group("LevelTwo"):
+			if Mushroom.size() == 0:
+				Events.level_completed.emit()
+				
+	
 func _input(event):
 	if(event.is_action_pressed("ui_cancel")):
 		game_paused = !game_paused

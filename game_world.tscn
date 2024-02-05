@@ -2601,13 +2601,14 @@ position = Vector2(35, -45)
 [node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("3_7sabn")]
 visible = false
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
+[node name="MushroomCounter" type="Label" parent="CanvasLayer"]
+offset_right = 1.0
 offset_bottom = 23.0
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
+[node name="PlayerPosition" type="Label" parent="CanvasLayer"]
+offset_top = 24.0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 47.0
 
 [node name="Menus" type="CanvasLayer" parent="."]
 

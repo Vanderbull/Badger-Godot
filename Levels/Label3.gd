@@ -10,10 +10,10 @@ func _ready():
 func _process(_delta):
 	if(get_tree().get_nodes_in_group("LevelOne")):
 		var TreasureChest = get_tree().get_nodes_in_group("TreasureChest")
-		text = "TreasureChest(one): " + str(TreasureChest.size())
+		text = "TreasureChests: " + str(TreasureChest.size())
 	if(get_tree().get_nodes_in_group("LevelTwo")):
 		var TreasureChest = get_tree().get_nodes_in_group("TreasureChest")
-		text = "TreasureChest(two): " + str(TreasureChest.size())
+		text = "TreasureChests: " + str(TreasureChest.size())
 	
 		
 

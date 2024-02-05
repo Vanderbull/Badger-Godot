@@ -10,7 +10,7 @@ func _ready():
 func _process(_delta):
 	if(get_tree().get_nodes_in_group("LevelOne")):
 		var Spikes = get_tree().get_nodes_in_group("Spikes")
-		text = "Spikes(one): " + str(Spikes.size())
+		text = "Spikes: " + str(Spikes.size())
 	if(get_tree().get_nodes_in_group("LevelTwo")):
 		var Spikes = get_tree().get_nodes_in_group("Spikes")
-		text = "Spikes(two): " + str(Spikes.size())
+		text = "Spikes: " + str(Spikes.size())

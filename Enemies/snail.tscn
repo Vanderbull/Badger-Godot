@@ -69,7 +69,7 @@ _data = {
 "walk": SubResource("Animation_10lee")
 }
 
-[node name="Snail" type="CharacterBody2D"]
+[node name="Snail" type="CharacterBody2D" groups=["Mob"]]
 script = ExtResource("1_s2tg5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

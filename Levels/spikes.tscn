@@ -10,7 +10,7 @@ region = Rect2(1, 329, 128, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2hgs"]
 size = Vector2(96, 32)
 
-[node name="Spikes" type="Area2D"]
+[node name="Spikes" type="Area2D" groups=["Trap"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_gsnom")

@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Character/remote_transform_2d.gd" id="3_kvvk1"]
 [ext_resource type="PackedScene" uid="uid://tpa6ay3tx4ps" path="res://Levels/mushroom.tscn" id="4_by7da"]
 [ext_resource type="Texture2D" uid="uid://ohnqx7rtnpl7" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="5_wnoog"]
-[ext_resource type="Script" path="res://Levels/Label.gd" id="6_383hb"]
 [ext_resource type="AudioStream" uid="uid://3nfa1qywynfq" path="res://Music/mountains.mp3" id="6_ivoxa"]
 [ext_resource type="Script" path="res://Levels/Label3.gd" id="8_rv0m6"]
 [ext_resource type="Script" path="res://Levels/Label4.gd" id="10_6urvn"]
@@ -16,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ch42wmqg4blo4" path="res://Enemies/snail.tscn" id="14_uw5n1"]
 [ext_resource type="Script" path="res://Enemies/Damageable.gd" id="15_1dqv7"]
 [ext_resource type="Script" path="res://Levels/TheRoom.gd" id="15_5idp6"]
+[ext_resource type="PackedScene" uid="uid://b7sb77d0c35dk" path="res://Levels/treasure_chest.tscn" id="16_api4f"]
 
 [sub_resource type="Gradient" id="Gradient_japts"]
 offsets = PackedFloat32Array(0, 0.694805)
@@ -2608,52 +2608,46 @@ layer_1/tile_data = PackedInt32Array(262108, 65536, 1, 262109, 131072, 1, 262110
 [node name="ExitArea" parent="." index="5"]
 position = Vector2(1313, -23)
 
-[node name="Mushroom" parent="." index="6" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(183, 31)
+[node name="Mushroom1" parent="." index="6" groups=["LevelOne"] instance=ExtResource("4_by7da")]
+position = Vector2(183, 23)
 
-[node name="Mushroom7" parent="." index="7" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(877, -402)
+[node name="Mushroom2" parent="." index="7" groups=["LevelOne"] instance=ExtResource("4_by7da")]
+position = Vector2(409, -56)
 
-[node name="Mushroom6" parent="." index="8" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(1129, -242)
+[node name="Mushroom3" parent="." index="8" groups=["LevelOne"] instance=ExtResource("4_by7da")]
+position = Vector2(600, -152)
 
-[node name="Mushroom2" parent="." index="9" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(409, -50)
+[node name="Mushroom4" parent="." index="9" groups=["LevelOne"] instance=ExtResource("4_by7da")]
+position = Vector2(789, -248)
 
-[node name="Mushroom3" parent="." index="10" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(600, -145)
+[node name="Mushroom5" parent="." index="10" groups=["LevelOne"] instance=ExtResource("4_by7da")]
+position = Vector2(1088, -248)
 
-[node name="Mushroom4" parent="." index="11" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(789, -241)
+[node name="Mushroom6" parent="." index="11" groups=["LevelOne"] instance=ExtResource("4_by7da")]
+position = Vector2(952, 24)
 
-[node name="Mushroom5" parent="." index="12" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(942, 30)
+[node name="Mushroom7" parent="." index="12" groups=["LevelOne"] instance=ExtResource("4_by7da")]
+position = Vector2(877, -408)
 
 [node name="Mushroom8" parent="." index="13" groups=["LevelOne"] instance=ExtResource("4_by7da")]
-position = Vector2(2116, 30)
+position = Vector2(1848, 24)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="14"]
 stream = ExtResource("6_ivoxa")
 volume_db = -20.0
 autoplay = true
 
-[node name="Label" parent="CanvasLayer" index="1"]
-offset_left = 4.0
-offset_top = 30.0
-offset_right = 44.0
-offset_bottom = 53.0
-script = ExtResource("6_383hb")
-
-[node name="Label3" type="Label" parent="CanvasLayer" index="3"]
+[node name="TreasureChestCounter" type="Label" parent="CanvasLayer" index="3"]
 offset_left = 332.0
 offset_top = -1.0
 offset_right = 372.0
 offset_bottom = 22.0
 script = ExtResource("8_rv0m6")
 
-[node name="Label4" type="Label" parent="CanvasLayer" index="4"]
+[node name="SpikeCounter" type="Label" parent="CanvasLayer" index="4"]
+offset_top = 48.0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 71.0
 script = ExtResource("10_6urvn")
 
 [node name="Spikes" parent="." index="17" groups=["LevelOne", "Spikes"] instance=ExtResource("10_gypsu")]
@@ -2661,7 +2655,7 @@ position = Vector2(704, 152)
 script = ExtResource("11_qjtsq")
 
 [node name="Spikes2" parent="." index="18" groups=["LevelOne", "Spikes"] instance=ExtResource("10_gypsu")]
-position = Vector2(832, 152)
+position = Vector2(832, 126)
 script = ExtResource("11_qjtsq")
 
 [node name="Snail" parent="." index="19" instance=ExtResource("14_uw5n1")]
@@ -2687,13 +2681,16 @@ shape = SubResource("RectangleShape2D_ovdqt")
 [node name="Damageable" type="Node" parent="TheRoom" index="1"]
 script = ExtResource("15_1dqv7")
 
-[connection signal="body_entered" from="Mushroom" to="Mushroom" method="_on_body_entered"]
-[connection signal="body_entered" from="Mushroom7" to="Mushroom7" method="_on_body_entered"]
-[connection signal="body_entered" from="Mushroom6" to="Mushroom6" method="_on_body_entered"]
+[node name="TreasureChest" parent="." index="24" instance=ExtResource("16_api4f")]
+position = Vector2(320, 24)
+
+[connection signal="body_entered" from="Mushroom1" to="Mushroom1" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom2" to="Mushroom2" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom3" to="Mushroom3" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom4" to="Mushroom4" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom5" to="Mushroom5" method="_on_body_entered"]
+[connection signal="body_entered" from="Mushroom6" to="Mushroom6" method="_on_body_entered"]
+[connection signal="body_entered" from="Mushroom7" to="Mushroom7" method="_on_body_entered"]
 [connection signal="body_entered" from="Mushroom8" to="Mushroom8" method="_on_body_entered"]
 [connection signal="body_entered" from="Spikes" to="Spikes" method="_on_body_entered"]
 [connection signal="body_entered" from="Spikes2" to="Spikes2" method="_on_body_entered"]

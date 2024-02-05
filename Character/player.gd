@@ -75,7 +75,7 @@ func _physics_process(delta):
 		#print("Collided with: ", body.name)
 	update_animation()
 	update_facing_direction()
-	$"../CanvasLayer/Label2".text = str(position.y)
+	$"../CanvasLayer/PlayerPosition".text = "Position: " + str(position.x).pad_decimals(1) + "," + str(position.y).pad_decimals(1)
 	#if position.y > 100:
 		#respawn()
 	
